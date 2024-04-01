@@ -1,1 +1,1 @@
-this is the repo or itscm 180.
+this is the repo for itscm 180.
