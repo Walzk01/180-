@@ -49,3 +49,5 @@ print(model3.summary())
 
 # Explanation of regression statistics:
 # R-squared: The proportion of variance in the dependent variable that is predictable from the independent variables.
+
+# Go Yankees!
