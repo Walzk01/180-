@@ -1,24 +1,21 @@
+# Import the necessary libraries
 import pandas as pd
 
-# Read the spreadsheet into a DataFrame
-data = pd.read_excel(r'C:\Users\Katie\Downloads\baseball.xlsx')
+# Define the file path of the spreadsheet
+file_path = (r'C:\Users\walzk01\Downloads\Restaurant Revenue.xlsx')
 
-# Select the required columns
-selected_columns = ['Runs Scored', 'Runs Allowed', 'Wins', 'OBP', 'SLG', 'Team Batting Average', 'Playoffs']
-data = data[selected_columns]
+# Read the spreadsheet into a pandas DataFrame
+df = pd.read_excel(file_path)
 
-# Define the prediction model
-# You can customize this model based on your requirements
-# Here, we are using a simple rule-based model
-data['Playoffs'] = 0  # Initialize all teams as not making the playoffs
-data.loc[(data['Wins'] > 90) & (data['OBP'] > 0.350) & (data['SLG'] > 0.450), 'Playoffs'] = 1
+# Select the required columns: Number_of_Customers, Menu_Price, Marketing_Spend, Promotions, Reviews, Monthly_Revenue
+selected_columns = ['Number_of_Customers', 'Menu_Price', 'Marketing_Spend', 'Promotions', 'Reviews', 'Monthly_Revenue']
+df_selected = df[selected_columns]
 
-# Print the prediction model
-print("Prediction Model:")
-print("Teams with Wins > 90, OBP > 0.350, and SLG > 0.450 will make the playoffs.")
+# Create a new column 'Average_Customer_Spending' by dividing 'Menu_Price' by 'Number_of_Customers'
+df_selected['Average_Customer_Spending'] = df_selected['Menu_Price'] / df_selected['Number_of_Customers']
 
-# Print the updated DataFrame with the prediction
-print("\nUpdated DataFrame:")
-print(data)
+# Create a new DataFrame 'table_model' with columns 'Average_Customer_Spending' and 'Monthly_Revenue'
+table_model = df_selected[['Average_Customer_Spending', 'Monthly_Revenue']]
 
-# Go Yankees!
+# Print the table model
+print(table_model)
