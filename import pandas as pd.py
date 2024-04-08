@@ -19,3 +19,5 @@ table_model = df_selected[['Average_Customer_Spending', 'Monthly_Revenue']]
 
 # Print the table model
 print(table_model)
+
+#Go Yankees!
