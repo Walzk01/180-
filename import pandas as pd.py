@@ -20,3 +20,5 @@ print("Teams with Wins > 90, OBP > 0.350, and SLG > 0.450 will make the playoffs
 # Print the updated DataFrame with the prediction
 print("\nUpdated DataFrame:")
 print(data)
+
+# Go Yankees!
